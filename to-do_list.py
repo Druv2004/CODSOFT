@@ -7,6 +7,7 @@ def display_menu():
     print("4. Delete a Task")
     print("5. Exit")
 
+
 def view_todo_list():
     if not os.path.exists("todo_list.txt"):
         print("To-Do list is empty")
@@ -18,9 +19,12 @@ def view_todo_list():
     if not tasks:
         print("Your To-Do List is empty!")
     else:
-        print("\nTo-Do List:")
+        print("\n" + "-" * 30)
+        print("|        To-Do List       |")
+        print("-" * 30)
         for idx, task in enumerate(tasks, start=1):
-            print(f"{idx}. {task.strip()}")
+            print(f"| {idx}. {task.strip()}")
+        print("-" * 30 + "\n")
 
 def add_task():
     task = input("Enter the task to add: ")
@@ -30,9 +34,8 @@ def add_task():
 
 def mark_task_done():
     view_todo_list()
-    task_num = int(input("Enter the number of the task to mark as done: "))
-    
     try:
+        task_num = int(input("Enter the number of the task to mark as done: "))
         with open("todo_list.txt", "r") as file:
             tasks = file.readlines()
         
@@ -48,9 +51,8 @@ def mark_task_done():
 
 def delete_task():
     view_todo_list()
-    task_num = int(input("Enter the number of the task to delete: "))
-    
     try:
+        task_num = int(input("Enter the number of the task to delete: "))
         with open("todo_list.txt", "r") as file:
             tasks = file.readlines()
         
