@@ -14,7 +14,6 @@ def generate_password(length):
         random.choice(string.ascii_lowercase),
         random.choice(string.ascii_uppercase),
         random.choice(string.digits),
-        random.choice(string.punctuation)
     ]
 
     
